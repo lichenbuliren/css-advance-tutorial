@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+/* 可扩展按钮，可根据父级字体大小来调整按钮大小 */
+.button{
+    font-size: 125%;
+    line-height: 1.5;
+    padding: .3em .8em;
+    border: 1px solid rgba(0,0,0,.1);
+    background: #58a linear-gradient(hsla(0,0%,100%,.2,transparent));
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+    color: white;
+    text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+}
+.button.primary{
+    background-color: #0dbbf0;
+}
+.button.ok{
+    background-color: #6b0;
+}
+.button.cancel{
+    background-color: #c00;
+}
+
+/* 浮层提示框 */
+.tips{
+    position: absolute;
+    left: 1em;
+    top: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 18px;
+    color: #bbb;
+    line-height: 1.5;
+}
+
+/* 使用继承，使得小三角形可以继承父级的边框样式和背景色 */
+.tips::after{
+    position: absolute;
+    content: '';
+    top: -.4em;
+    left: 1em;
+    padding: .35em;
+    background: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(45deg);
+}
+
+/* 半透明边框实现，通过 background-clip: padding-box; 属性实现 */
+.opacity-border{
+    border: 10px solid hsla(0,0%,100%,.5);
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    background-clip: padding-box;
+}
+
+/**
+ * 多重边框
+ * 一个正值的扩张半径加上两个为零的偏移量以及为零的模糊值，得到的投影就是实线
+ * 而且支持逗号分割语法，从而可以得到任意多的边框
+ */
+.multiple-borders{
+    width: 60%;
+    margin: 0 auto;
+    background: yellowgreen;
+    box-shadow: 0 0 0 10px #655,
+                0 0 0 15px deeppink,
+                0 2px 5px 15px rgba(0,0,0,.6);
+}
